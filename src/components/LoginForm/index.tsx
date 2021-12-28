@@ -47,26 +47,6 @@ const LoginForm: React.FC = () => {
   }
 
   return (
-    // <div className="form-container">
-    //   <div className="form-title">
-    //     <h3 className="title">Welcome</h3>
-    //     <small className="sub-title">Please enter your credentials to continue</small>
-    //   </div>
-    //   <form className="form" name="form" onSubmit={handleSubmit}>
-    //     <label htmlFor="username">
-    //       Username
-    //       <input type="text" name="username" value={username} onChange={handleChange} className="input" placeholder="Enter your username" id="username" />
-    //     </label>
-    //     {submitted && !username && <div className="invalid-feedback">Username is required</div>}
-    //     <label htmlFor="password">
-    //       Password
-    //       <input type="password" name="password" value={password} onChange={handleChange} className="input" placeholder="Enter your password" id="password" />
-    //     </label>
-    //     {submitted && !password && <div className="invalid-feedback">Password is required</div>}
-    //     {error && <span className="error-message">Your credentials are wrong!</span>}
-    //     <button>Log In</button>
-    //   </form>
-    // </div>
     <div className="container-login">
       <div className="wrap-login">
         <form className="login-form validate-form" onSubmit={handleSubmit}>
@@ -77,7 +57,7 @@ const LoginForm: React.FC = () => {
             {submitted && !username && <div className="alert-validate">Username is required</div>}
           </div>
 
-          <div className="wrap-input validate-input" data-validate="Password is required">
+          <div className="wrap-input validate-input">
             <input className="input" type="password" placeholder="Password" name="password" value={password} onChange={handleChange} />
             {submitted && !password && <div className="alert-validate">Password is required</div>}
           </div>

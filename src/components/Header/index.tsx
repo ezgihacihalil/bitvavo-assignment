@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <span>Hello</span>
-      <button onClick={logout}>Logout</button>
+      <button onClick={logout} className="logout-button">Logout</button>
     </header>
   );
 };

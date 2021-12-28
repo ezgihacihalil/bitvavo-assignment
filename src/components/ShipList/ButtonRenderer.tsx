@@ -13,7 +13,7 @@ const ButtonRenderer: React.FC<Props> = ({ clicked, buttonText, value, valueForm
   }
 
   return (
-    <button onClick={btnClickedHandler}>{buttonText}</button>
+    <button className="view-button" onClick={btnClickedHandler}>{buttonText}</button>
   )
 }
 

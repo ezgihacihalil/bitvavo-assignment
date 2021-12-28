@@ -3,7 +3,7 @@ import ShipList from '../components/ShipList';
 import Header from '../components/Header';
 
 const ShipsPage: React.FC = () => (
-    <section className="main-page section">
+    <section className="ships-page">
         <Header />
         <ShipList />
     </section>

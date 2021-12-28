@@ -1,10 +1,18 @@
 .header {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    background: #9053c7;
-    background: linear-gradient(-135deg, #c850c0, #4158d0);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: #9053c7;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  color: #fff;
+
+  .logout-button {
     color: #fff;
+    padding: 8px 16px;
+    border: 1px solid #fff;
+    border-radius: 7px;
+    cursor: pointer;
+  }
 }
