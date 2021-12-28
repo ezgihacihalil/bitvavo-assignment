@@ -1,6 +1,6 @@
 import './index.scss';
 
-const Header = () => {
+const Header: React.FC = () => {
   const logout = () => {
     localStorage.setItem('user', '');
     window.location.reload();

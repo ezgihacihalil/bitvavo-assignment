@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import history from '../../helpers/history';
 
 import './index.scss';
 
 const EMAIL = 'email@test.com';
 const PASSWORD = 'test123';
 
-const LoginForm = () => {
+const LoginForm: React.FC = () => {
   const [inputs, setInputs] = useState({
     username: '',
     password: '',
@@ -28,6 +29,7 @@ const LoginForm = () => {
     setError(false);
     if (username === EMAIL && password === PASSWORD) {
       localStorage.setItem('user', JSON.stringify({ username: EMAIL, password: PASSWORD }));
+      history.push('/');
     }
     else {
       setError(true);
@@ -70,8 +72,8 @@ const LoginForm = () => {
         <form className="login-form validate-form" onSubmit={handleSubmit}>
           <span className="login-form-title">Login</span>
 
-          <div className="wrap-input validate-input" name="username" value={username} onChange={handleChange}>
-            <input className="input" type="text" name="email" placeholder="Email" />
+          <div className="wrap-input validate-input">
+            <input className="input" type="text" placeholder="Email" name="username" value={username} onChange={handleChange} />
             {submitted && !username && <div className="alert-validate">Username is required</div>}
           </div>
 
@@ -83,9 +85,9 @@ const LoginForm = () => {
           <div className="container-login-form-btn">
             <button className="login-form-btn">Login</button>
           </div>
+          {error && <span className="alert-validate">Your credentials are wrong!</span>}
         </form>
       </div>
-      {error && <span className="alert-validate">Your credentials are wrong!</span>}
     </div>
   );
 };

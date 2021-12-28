@@ -1,15 +1,16 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const PrivateRoute = ({ component: Component, ...rest }: any) => {
-  return (
-      <Route {...rest} render={(props: any) => 
-        localStorage.getItem('user') ?
-              <Component {...props} />
-              : <Redirect to="/login" />
-      } />
-  );
-};
+interface Props {
+  component: React.ComponentType<any>;
+  exact: boolean;
+  path: string;
+}
 
-export default PrivateRoute;
+export const PrivateRoute: React.FC<Props> = ({ component: Component, exact, path }) => (
+  <Route exact={exact} path={path} render={props => (
+      localStorage.getItem('user')
+          ? <Component {...props} />
+          : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+  )} />
+)

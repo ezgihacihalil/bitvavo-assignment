@@ -11,7 +11,7 @@ import { useState } from 'react';
 import './index.scss';
 
 
-const ShipListContainer = () => {
+const ShipListContainer: React.FC = () => {
   const { data } = useShipListQuery();
   const [selectedShip, setSelectedShip] = useState('');
 
