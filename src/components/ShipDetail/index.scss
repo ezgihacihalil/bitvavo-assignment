@@ -1,0 +1,62 @@
+.profile-card {
+  margin: 0 20px;
+  display: block;
+  background: url(https://s-media-cache-ak0.pinimg.com/736x/3a/1f/02/3a1f02c10700daa80655a302c5a27acf.jpg);
+  background-size: cover;
+  overflow: hidden;
+  border-top: 4px solid #9053c7;
+  border-bottom: 4px solid #9053c7;
+  border-radius: 5px;
+  height: 500px;
+  width: 400px;
+  box-shadow: 0 0 70px 10px #fff;
+}
+
+.image-container {
+  text-align: center;
+
+  img {
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+    width: 200px;
+    height: 200px;
+    border: 5px solid #fff;
+  }
+
+  h1 {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+    font-size: 25px;
+    line-height: 25px;
+    display: inline-block;
+    padding: 10px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+  }
+
+  h2 {
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 0px;
+    margin: 0;
+  }
+}
+
+.profile-bio {
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 14px;
+
+  p {
+    margin: 10px;
+    text-align: center;
+    font-size: 16px;
+  }
+}
