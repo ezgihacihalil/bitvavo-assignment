@@ -14,7 +14,7 @@ interface Ship {
 }
 
 const ShipDetailContainer: React.FC<Props> = ({ id }) => {
-  const { data, error, loading }: Ship = useShipDetailQuery({ variables: { id } });
+  const { data }: Ship = useShipDetailQuery({ variables: { id } });
 
   return <>
     <div className='ship'>

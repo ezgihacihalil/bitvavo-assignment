@@ -5,7 +5,7 @@ interface Props {
   valueFormatted: string;
 }
 
-const ButtonRenderer: React.FC<Props> = ({ clicked, buttonText, value, valueFormatted }) => {
+const ViewButtonRenderer: React.FC<Props> = ({ clicked, buttonText, value, valueFormatted }) => {
   const cellValue = valueFormatted ? valueFormatted : value;
   
   const btnClickedHandler = () => {
@@ -17,4 +17,4 @@ const ButtonRenderer: React.FC<Props> = ({ clicked, buttonText, value, valueForm
   )
 }
 
-export default ButtonRenderer;
+export default ViewButtonRenderer;

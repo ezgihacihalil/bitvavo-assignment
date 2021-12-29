@@ -3,13 +3,14 @@ import { AgGridReact } from 'ag-grid-react';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-import ButtonRenderer from './ButtonRenderer';
 import ShipDetail from '../ShipDetail';
 import LoadingRenderer from './LoadingRenderer';
 import { useState } from 'react';
 
 import './index.scss';
-
+import ViewButtonRenderer from './ViewButtonRenderer';
+import RemoveButtonRenderer from './RemoveButtonRenderer';
+import { GridApi } from 'ag-grid-community';
 
 const ShipListContainer: React.FC = () => {
   const { data } = useShipListQuery();
@@ -22,27 +23,43 @@ const ShipListContainer: React.FC = () => {
       <div className="ag-theme-alpine" style={{ height: 500, width: 700 }}>
         <AgGridReact
           columnDefs={[
-            { field: 'name' },
-            { field: 'type' },
-            { field: 'active' },
-            { field: 'year_built' },
-            { field: 'home_port' },
+            { field: 'name', headerName: 'Name' },
+            { field: 'type', headerName: 'Type' },
+            { field: 'active', headerName: 'Is Active' },
+            { field: 'year_built', headerName: 'Year Built' },
+            { field: 'home_port', headerName: 'Home Port' },
             {
               field: 'id',
-              cellRenderer: 'btnCellRenderer',
+              headerName: 'View',
+              cellRenderer: 'viewBtnCellRenderer',
               cellRendererParams: {
                 clicked: function (field: string) {
                   setSelectedShip(field);
                 },
                 buttonText: 'View',
               }
-            }]}
+            },
+            {
+              field: 'id',
+              headerName: 'Remove',
+              cellRenderer: 'removeBtnCellRenderer',
+              cellRendererParams: {
+                clicked: function (node: {data: string}, api: GridApi) {
+                  const deletedRow = node.data;
+
+                  api.applyTransaction({ remove: [deletedRow] })
+                },
+                buttonText: 'Remove',
+              }
+            }
+          ]}
           loadingCellRendererParams={{
             loadingMessage: 'Loading...',
           }}
           loadingCellRenderer={'loadingRenderer'}
           frameworkComponents={{
-            btnCellRenderer: ButtonRenderer,
+            viewBtnCellRenderer: ViewButtonRenderer,
+            removeBtnCellRenderer: RemoveButtonRenderer,
             loadingRenderer: LoadingRenderer,
           }}
           rowData={shipList}
